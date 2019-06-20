@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_course/product_control.dart';
 import 'package:flutter_course/products.dart';
 
 class ProductManager extends StatefulWidget {
   final String startingProduct;
 
-  ProductManager(this.startingProduct);
+  ProductManager({this.startingProduct});
 
   @override
   State<StatefulWidget> createState() {
@@ -17,8 +19,16 @@ class _ProductManagerState extends State<ProductManager> {
 
   @override
   void initState() {
-    _products.add(widget.startingProduct);
+    if (widget.startingProduct != null) {
+      _products.add(widget.startingProduct);
+    }
     super.initState();
+  }
+
+  void _addProduct(String product) {
+    setState(() {
+      _products.add(product);
+    });
   }
 
   @override
@@ -26,17 +36,10 @@ class _ProductManagerState extends State<ProductManager> {
     return Column(
       children: <Widget>[
         Container(
-          margin: EdgeInsets.all(10.0),
-          child: RaisedButton(
-            onPressed: () {
-              setState(() {
-                _products.add('Adcanved Food Tester');
-              });
-            },
-            child: Text('Add Product'),
-          ),
-        ),
-        Products(_products)
+            margin: EdgeInsets.all(10.0), child: ProductControl(_addProduct)),
+        Expanded(
+          child: Products(_products),
+        )
       ],
     );
   }
