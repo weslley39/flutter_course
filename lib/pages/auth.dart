@@ -13,12 +13,7 @@ class AuthPage extends StatelessWidget {
         body: Center(
           child: RaisedButton(
             child: Text('LOGIN'),
-            onPressed: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => ProductsAdminPage()));
-            },
+            onPressed: () => Navigator.pushReplacementNamed(context, '/'),
           ),
         ));
   }
