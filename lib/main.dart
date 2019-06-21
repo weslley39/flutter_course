@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_course/product_manager.dart';
+import 'package:flutter_course/pages/auth.dart';
+import 'package:flutter_course/pages/home.dart';
 
 // Short
 void main() => runApp(MyApp());
@@ -20,11 +21,7 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.deepPurple,
           primarySwatch: Colors.deepOrange,
           brightness: Brightness.light),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('EasyList'),
-          ),
-          body: ProductManager()),
+      home: AuthPage(),
     );
   }
 }
